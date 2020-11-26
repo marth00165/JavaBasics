@@ -205,24 +205,33 @@ public class Main {
 
     public static void mortgageCalculator(){
         System.out.println("Rohit's Mortgage Calculator");
+
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+
+
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("Principal: ");
         int principal = scanner.nextInt();
+
         System.out.print("Annual Interest Rate: ");
-        double yearlyRate = scanner.nextDouble();
-        double monthlyRate = yearlyRate/100/12;
+        float yearlyRate = scanner.nextFloat();
+        float monthlyRate = yearlyRate/PERCENT/MONTHS_IN_YEAR;
+
         System.out.print("Period (Years): ");
-        int years = scanner.nextInt();
-        int months = years*12;
-        double topEquation = monthlyRate*(Math.pow((1+monthlyRate), months));
-        double bottomEquation = Math.pow((1 + monthlyRate), months) - 1;
+        byte years = scanner.nextByte();
+        int totalMonths = years*MONTHS_IN_YEAR;
+
+        double topEquation = monthlyRate*(Math.pow((1+monthlyRate), totalMonths));
+        double bottomEquation = Math.pow((1 + monthlyRate), totalMonths) - 1;
+
         double unformattedMortgage = principal * topEquation/bottomEquation;
 
 
+        String formattedMortgage = NumberFormat.getCurrencyInstance().format(unformattedMortgage);
 
-        String mortgage = NumberFormat.getCurrencyInstance().format(unformattedMortgage);
-
-        System.out.println("Mortgage: " + mortgage);
+        System.out.println("Mortgage: " + formattedMortgage);
     }
 
 
