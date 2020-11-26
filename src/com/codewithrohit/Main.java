@@ -2,8 +2,10 @@ package com.codewithrohit;
 // Code With Mosh Java Tutorial Part 1
 
 import java.awt.*;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Date; // Imports Library to use Date object from
+import java.util.Scanner;
 
 public class Main {
 // main method should always be static
@@ -14,13 +16,19 @@ public class Main {
         System.out.println("\n------------");
         Strings(); // Chapter 6-7
         System.out.println("\n------------");
-        Arrays(); // Chapter 8-9
+        arrayFunctions(); // Chapter 8-9
         System.out.println("\n------------");
         Constants(); // Chapter 10
         System.out.println("\n------------");
-        ArithmeticExpressions(); // Chapter 11-12
+        arithmeticExpressions(); // Chapter 11-12
         System.out.println("\n------------");
-
+        Casting(); // Chapter 13
+        System.out.println("\n------------");
+        numberStuff(); // Chapter 14-15
+        System.out.println("\n------------");
+//        readingUserInput(); // Chapter 16
+        System.out.println("\n------------");
+        mortgageCalculator(); // Project
     }
 
     public static void basics(){
@@ -75,7 +83,7 @@ public class Main {
         System.out.println(twoLinez); // prints 2 separate lines
     }
 
-    public static void Arrays(){
+    public static void arrayFunctions(){
         System.out.println("Chapter 8-9");
         int[] numbers = new int[5];
         numbers[0] = 1;
@@ -107,7 +115,7 @@ public class Main {
         // Now pi can never be changed
     }
 
-    public static void ArithmeticExpressions(){
+    public static void arithmeticExpressions(){
         System.out.println("Chapter 11-12");
         int result = 10 + 3; // Same operators as any language
         System.out.println(result);
@@ -140,6 +148,68 @@ public class Main {
 
         System.out.println("X: " + x);
     }
+
+    public static void Casting(){
+        System.out.println("Chapter 13");
+        //Implicit casting
+        //byte > short > int > long > float > double
+        double x = 1.1;
+        double y = x+2;
+
+        System.out.println(y);
+
+        // Explicit casting
+        int z = (int)x +2 ;
+        System.out.println(z);
+
+        // Wrapping
+        String a = "1";
+        System.out.println(Integer.parseInt(a) + 2);
+    }
+
+    public static void numberStuff(){
+        System.out.println("Chapter 14-15");
+        int result = Math.round(1.1F);
+
+        System.out.println(result);
+
+        int ceiling = (int)Math.ceil(1.1F); // also has 4
+        System.out.println(ceiling);
+
+        int max = Math.max(1,2); // also has min
+        System.out.println(max);
+
+        int random = (int)(Math.random() * 100); // random whole number 0-100
+        System.out.println(random);
+
+        // Format Numbers
+
+        String money = NumberFormat.getPercentInstance().format(0.1);
+
+        System.out.println(money); // Formats number as percent
+    }
+
+    public static void readingUserInput(){
+        System.out.println("Chapter 16");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Name: ");
+        String name = scanner.nextLine().trim();
+
+        System.out.print("Age: ");
+        byte age = scanner.nextByte();
+
+        System.out.println("Hello " + name);
+        System.out.println("You are " + age + " years old");
+    }
+
+    public static void mortgageCalculator(){
+
+    }
+
+
+
+
 
 
 }
