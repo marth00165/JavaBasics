@@ -10,24 +10,24 @@ import java.util.Scanner;
 public class Main {
 // main method should always be static
     public static void main(String[] args) {
-        basics();  // Chapters 1-5
-        System.out.println("\n------------");
-        primVsRef(); // Chapter 5
-        System.out.println("\n------------");
-        Strings(); // Chapter 6-7
-        System.out.println("\n------------");
-        arrayFunctions(); // Chapter 8-9
-        System.out.println("\n------------");
-        Constants(); // Chapter 10
-        System.out.println("\n------------");
-        arithmeticExpressions(); // Chapter 11-12
-        System.out.println("\n------------");
-        Casting(); // Chapter 13
-        System.out.println("\n------------");
-        numberStuff(); // Chapter 14-15
-        System.out.println("\n------------");
+//        basics();  // Chapters 1-5
+//        System.out.println("\n------------");
+//        primVsRef(); // Chapter 5
+//        System.out.println("\n------------");
+//        Strings(); // Chapter 6-7
+//        System.out.println("\n------------");
+//        arrayFunctions(); // Chapter 8-9
+//        System.out.println("\n------------");
+//        Constants(); // Chapter 10
+//        System.out.println("\n------------");
+//        arithmeticExpressions(); // Chapter 11-12
+//        System.out.println("\n------------");
+//        Casting(); // Chapter 13
+//        System.out.println("\n------------");
+//        numberStuff(); // Chapter 14-15
+//        System.out.println("\n------------");
 //        readingUserInput(); // Chapter 16
-        System.out.println("\n------------");
+//        System.out.println("\n------------");
         mortgageCalculator(); // Project
     }
 
@@ -204,7 +204,25 @@ public class Main {
     }
 
     public static void mortgageCalculator(){
+        System.out.println("Rohit's Mortgage Calculator");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Principal: ");
+        int principal = scanner.nextInt();
+        System.out.print("Annual Interest Rate: ");
+        double yearlyRate = scanner.nextDouble();
+        double monthlyRate = yearlyRate/100/12;
+        System.out.print("Period (Years): ");
+        int years = scanner.nextInt();
+        int months = years*12;
+        double topEquation = monthlyRate*(Math.pow((1+monthlyRate), months));
+        double bottomEquation = Math.pow((1 + monthlyRate), months) - 1;
+        double unformattedMortgage = principal * topEquation/bottomEquation;
 
+
+
+        String mortgage = NumberFormat.getCurrencyInstance().format(unformattedMortgage);
+
+        System.out.println("Mortgage: " + mortgage);
     }
 
 
